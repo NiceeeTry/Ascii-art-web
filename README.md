@@ -1,28 +1,25 @@
 
-# Ascii-Art-Web
+# Ascii-Art-Web-Export-File
 
-It is a web server for outputting the text entered by user in a graphic representation of ASCII.
+Ascii-art-web-export consists on making sure that it is possible to export the output of the web application, at least in one export format at your choice.
+In our case the format is the text file.
+## Objectives
 
-## To execute the program run the following code: go run main.go
-To see the web page insert http://localhost:8080/ in a browser.
-## Description
-Ascii-art-web consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of a program that outputs text in a graphical representation of ASCII (ascii-art project)
+- You should be able to export the result of the ascii-art project implemented in the website.
+- The file must be exported with the right permissions (read and write) for the user.
+- When sending a file or image as part of the HTTP response we must include the use of HTTP headers.
+## General requirements
 
-Webpage must allow the use of the different banners:
-- shadow
-- standard
-- thinkertoy
+- The web server must export at least in one export format.
+- The web server must be created in Go.
+- The web site must include a button or a link to download/export the file.
+- You must handle website errors.
+- The code must respect the good practices.
+## Execution 
+To run the program it is necessary to download the repository and in the main root 
+direcory run the following code
+- **go run main.go**
+## Authors
+@aaitbaye @kmaratova
 
-Implement the following HTTP endpoints:
-- GET /: Sends HTML response, the main page.
-- 1.1. GET Tip: go templates to receive and display data from the server.
-- POST /ascii-art: that sends data to Go server (text and a banner)
-- POST Tip: use form and other types of tags to make the post request.\
-### The main page must have:
-- text input
-- radio buttons, select object or anything else to switch between banners
-- button, which sends a POST request to '/ascii-art' and outputs the result on the page.
 
-## Usage
-After cloning the repository, simply do a [go run main.go.] After that, connect to the localhost:8080 through your browser and start using the static website.
-## 

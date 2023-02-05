@@ -32,7 +32,7 @@ func AsciiArt(text, filename string) (string, bool) {
 
 func GetLine(num int, filename string, err *Error500) string {
 	str := ""
-	f, e := os.Open("./docs/banners/" + filename)
+	f, e := os.Open("./banners/" + filename)
 	// fmt.Println(filename)
 	if e != nil {
 		err.err500 = true

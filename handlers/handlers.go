@@ -1,9 +1,10 @@
 package handlers
 
 import (
-	ascii "ascii-art-web/docs/asciiTransform"
+	ascii "ascii-art-web/asciiTransform"
+	"html/template"
 	"net/http"
-	"text/template"
+	"strconv"
 )
 
 type Data struct {
@@ -12,7 +13,7 @@ type Data struct {
 	ErrorText   string
 }
 
-var tmpl = template.Must(template.ParseGlob("docs/htmlTemplates/*.html"))
+var tmpl = template.Must(template.ParseGlob("assets/htmlTemplates/*.html"))
 
 func MainPageHandler(writer http.ResponseWriter, request *http.Request) {
 	var data Data
@@ -68,6 +69,15 @@ func AsciiPage(writer http.ResponseWriter, request *http.Request) {
 		errorHandler(writer, request, &data)
 		return
 	}
+
+	if _, Download := request.Form["download"]; Download {
+		writer.Header().Set("Content-Disposition", "attachment; filename=banner-text.txt")
+		writer.Header().Set("Content-Type", "text/plain")
+		writer.Header().Set("Content-Length", strconv.Itoa(len(output)))
+		writer.Write([]byte(output))
+		return
+	}
+
 	data.UserInput = output
 	tmpl.ExecuteTemplate(writer, "index.html", data)
 }
