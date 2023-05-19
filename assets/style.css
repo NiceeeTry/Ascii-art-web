@@ -20,7 +20,7 @@ body{
     background-size: cover;
     background-position: center;
     
-    overflow: hidden;
+    overflow:hidden;
 
 }
 button,input,select{
@@ -34,7 +34,7 @@ button,input,select{
 }
 .box_header{
     width: 20%;
-    height: 100px;
+    height: 50px;
     border: 1px solid #fbfcfd;
     margin: 15px auto;
     background-color: #179e95;
